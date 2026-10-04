@@ -90,6 +90,7 @@
         }
 
         .section-header {
+            margin-top: 3rem;
             margin-bottom: 3rem;
             font-size: 2.2rem;
             text-align: center;
@@ -433,7 +434,7 @@
         .gh-stats-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 2rem;
             align-items: center;
             width: 100%;
         }
@@ -463,6 +464,12 @@
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             transition: transform 0.3s, border-color 0.3s;
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: auto;
         }
 
         .gh-stat-card:hover, .gh-stat-wide:hover {
@@ -562,7 +569,8 @@
             
             <div class="nav-links">
                 <a href="#about-me">About</a>
-                <a href="#education">Education & Certs</a>
+                <a href="#education">Education</a>
+                <a href="#certifications">Training</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
                 <a href="#github-stats">Stats</a>
@@ -574,8 +582,8 @@
     <section id="hero" class="hero container visible">
         <div class="hero-inner">
             <div class="hero-content">
-                <p class="hero-subtitle">DATA-DRIVEN SOLUTIONS</p>
-                <h1 class="hero-title">Ghanshyam Prajapati<br><span class="gradient-text">AI & Machine Learning Engineer</span></h1>
+                <p class="hero-subtitle"></p>
+                <h1 class="hero-title">Ghanshyam Prajapati<br><span class="gradient-text">Generative AI & ML Engineer</span></h1>
                 <p class="hero-desc">
                     Building intelligent AI applications with Machine Learning, Generative AI, NLP, Computer Vision, and modern deployment technologies.
                 </p>
@@ -594,7 +602,7 @@
         <h2 class="section-header">About <span class="gradient-text">Me</span></h2>
         <div class="glass-panel" style="padding: 3rem 2rem;">
             <p class="about-text">
-                I'm an aspiring AI & Machine Learning Engineer passionate about building real-world AI applications. I specialize in Machine Learning, Generative AI, NLP, Computer Vision, and FastAPI, with hands-on experience developing and deploying end-to-end AI solutions.
+                Results-driven AI & Machine Learning Engineer with strong expertise in developing scalable, end-to-end AI applications using Python, TensorFlow, and Generative AI (LangChain, FAISS). Proven track record of building Computer Vision models, RAG-based chatbots, and predictive ML systems, seamlessly deploying them via FastAPI and Docker. Passionate about leveraging data-driven architectures to solve complex, real-world business challenges.
             </p>
         </div>
     </section>
@@ -616,17 +624,50 @@
     </section>
 
     <section id="certifications" class="container">
-        <h2 class="section-header">Professional <span class="gradient-text">Certifications</span></h2>
-        <div class="edu-grid">
-            <div class="glass-panel edu-card">
-                <div class="edu-date">Ongoing Professional Training</div>
-                <h3 class="edu-title">AI & Machine Learning</h3>
-                <p class="edu-inst">Jinarth Infoteach</p>
+        <h2 class="section-header">Professional <span class="gradient-text">Training</span></h2>
+        <div class="projects-grid"> 
+            <!-- AI & ML Certificate Card -->
+            <div class="glass-panel project-card">
+                <img src="./AIML_2026.png" alt="AI & ML Training Certificate" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none; object-fit: cover; object-position: top; background: #fff;">
+                
+                <div class="project-badge">In Progress</div>
+                <h3 class="project-title">Artificial Intelligence & Machine Learning</h3>
+                
+                <p class="project-desc">
+                    Enrolled in a 1-year training program at Jinarth Infotech. Successfully completed the first 6 months with hands-on experience in Data Analysis, Machine Learning, Deep Learning, NLP, and Computer Vision.
+                </p>
+                
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>Machine Learning</span>
+                    <span>Deep Learning</span>
+                    <span>NLP</span>
+                    <span>Computer Vision</span>
+                </div>
+                
+                <div class="project-actions" style="margin-top: 1rem;">
+                    <a href="./AIML 2026.pdf" target="_blank" class="btn btn-primary btn-sm">View Certificate</a>
+                </div>
             </div>
-            <div class="glass-panel edu-card">
-                <div class="edu-date">Ongoing Professional Training</div>
-                <h3 class="edu-title">Data Analysis</h3>
-                <p class="edu-inst">Jinarth Infoteach</p>
+
+            <!-- Data Analysis Training Card -->
+            <div class="glass-panel project-card">
+                <div style="height: 180px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); border-radius: 8px 8px 0 0; margin-bottom: 1.5rem; border: 1px solid var(--glass-border);">
+                    <h3 style="color: var(--text-secondary); font-family: var(--font-mono);">DATA_ANALYSIS</h3>
+                </div>
+                
+                <div class="project-badge">In Progress</div>
+                <h3 class="project-title">Data Analysis </h3>
+                
+                <p class="project-desc">
+                    Professional training completed at Jinarth Infotech, Anand, Gujarat. Focused on foundational data manipulation, cleaning, and visualization techniques.
+                </p>
+                
+                <div class="project-tech">
+                    <span>Data Analysis</span>
+                    <span>Excel</span>
+                    <span>Data Visualization</span>
+                </div>
             </div>
         </div>
     </section>
@@ -639,6 +680,7 @@
                 <div class="skill-tags">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">JavaScript</span>
                     <span class="skill-tag">Data Cleaning</span>
                     <span class="skill-tag">EDA</span>
                     <span class="skill-tag">Excel</span>
@@ -648,12 +690,13 @@
             <div class="glass-panel skill-category">
                 <h3>Machine Learning</h3>
                 <div class="skill-tags">
+                    <span class="skill-tag">Computer Vision</span>
+                    <span class="skill-tag">RAG</span>
                     <span class="skill-tag">Regression</span>
                     <span class="skill-tag">Classification</span>
                     <span class="skill-tag">Clustering</span>
                     <span class="skill-tag">CNNs</span>
                     <span class="skill-tag">Transfer Learning</span>
-                    <span class="skill-tag">Feature Engineering</span>
                     <span class="skill-tag">NLP</span>
                 </div>
             </div>
@@ -662,6 +705,8 @@
                 <div class="skill-tags">
                     <span class="skill-tag">TensorFlow</span>
                     <span class="skill-tag">Scikit-Learn</span>
+                    <span class="skill-tag">LangChain</span>
+                    <span class="skill-tag">FAISS</span>
                     <span class="skill-tag">Pandas</span>
                     <span class="skill-tag">NumPy</span>
                     <span class="skill-tag">Matplotlib</span>
@@ -672,11 +717,11 @@
                 <h3>Deployment</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">Docker</span>
                     <span class="skill-tag">Streamlit</span>
                     <span class="skill-tag">Render</span>
-                    <span class="skill-tag">Google Colab</span>
-                    <span class="skill-tag">Jupyter Notebook</span>
                     <span class="skill-tag">Railway</span>
+                    <span class="skill-tag">Google Colab</span>
                 </div>
             </div>
         </div>
@@ -688,7 +733,27 @@
         <h3 class="subsection-header">AI & Machine Learning</h3>
         <div class="projects-grid">
 
-<!-- NEW PROJECT: WhatsApp Clinic System -->
+            <div class="glass-panel project-card">
+                <img src="./flipcart.png" alt="Flipkart Order Intelligence" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
+                <div class="project-badge">Featured</div>
+                <h3 class="project-title">Flipkart Order Intelligence</h3>
+                <p class="project-desc">
+                    An AI-powered e-commerce system for return risk prediction,
+                    product image classification, and intelligent customer support.
+                </p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>Scikit-learn</span>
+                    <span>TensorFlow Lite</span>
+                    <span>FastAPI</span>
+                    <span>Mistral AI</span>
+                </div>
+                <div class="project-actions">
+                    <a href="https://github.com/Ghanshyam6032/flipcart-order-intelligence" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+                    <a href="https://github.com/Ghanshyam6032/flipcart-order-intelligence/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
+                </div>
+            </div>
+
             <div class="glass-panel project-card">
                 <img src="./whatsapp.png" alt="AI WhatsApp Clinic Booking" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
                 <div class="project-badge">New</div>
@@ -704,33 +769,33 @@
                 <div class="project-actions">
                     <a href="https://github.com/Ghanshyam6032/whatsapp-clinic-appointment-system" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
                     <a href="https://github.com/Ghanshyam6032/whatsapp-clinic-appointment-system/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
-                    <!-- WhatsApp Redirect Link -->
                     <a href="https://wa.me/919316810286?text=Hi" class="btn btn-primary btn-sm" target="_blank">Live Demo</a>
                 </div>
             </div>
             
-<div class="glass-panel project-card">
-    <img src="./agent.png" alt="AI Travel Agent Interface" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
-    <div class="project-badge">Featured</div>
-    <h3 class="project-title">AI Travel Agent</h3>
-    <p class="project-desc">An interactive, AI-powered travel concierge that helps users plan trips seamlessly. It utilizes LangChain and Groq's Llama-3.3-70B model to intelligently call 6 live APIs for real-time weather, flight searches, hotel & restaurant recommendations, currency conversion, and distance calculation. Features a modern Single-Page Application (SPA) frontend with an integrated login system.</p>
-    <div class="project-tech">
-        <span>Python</span>
-        <span>FastAPI</span>
-        <span>LangChain</span>
-        <span>Groq LLM</span>
-        <span>Tailwind CSS</span>
-        <span>Railway</span>
-        <span>Live APIs</span>
-    </div>
-    <div class="project-actions">
-        <a href="https://github.com/Ghanshyam6032/AI-Travel-Agent" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
-        <a href="https://github.com/Ghanshyam6032/AI-Travel-Agent/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
-        <a href="https://ghanshyam6032.github.io/AI-Travel-Agent/" class="btn btn-primary btn-sm" target="_blank">Live Demo</a>
-    </div>
-</div>
             <div class="glass-panel project-card">
-               <img src="./chatbot.png" alt="COVID-19 Chest X-Ray Classification" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
+                <img src="./agent.png" alt="AI Travel Agent Interface" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
+                <div class="project-badge">Featured</div>
+                <h3 class="project-title">AI Travel Agent</h3>
+                <p class="project-desc">An interactive, AI-powered travel concierge that helps users plan trips seamlessly. It utilizes LangChain and Groq's Llama-3.3-70B model to intelligently call 6 live APIs for real-time weather, flight searches, hotel & restaurant recommendations, currency conversion, and distance calculation. Features a modern Single-Page Application (SPA) frontend with an integrated login system.</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>FastAPI</span>
+                    <span>LangChain</span>
+                    <span>Groq LLM</span>
+                    <span>Tailwind CSS</span>
+                    <span>Railway</span>
+                    <span>Live APIs</span>
+                </div>
+                <div class="project-actions">
+                    <a href="https://github.com/Ghanshyam6032/AI-Travel-Agent" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+                    <a href="https://github.com/Ghanshyam6032/AI-Travel-Agent/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
+                    <a href="https://ghanshyam6032.github.io/AI-Travel-Agent/" class="btn btn-primary btn-sm" target="_blank">Live Demo</a>
+                </div>
+            </div>
+
+            <div class="glass-panel project-card">
+               <img src="./chatbot.png" alt="Intelligent Document RAG" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
                <div class="project-badge">New</div>
                <h3 class="project-title">Intelligent Document RAG</h3>
                <p class="project-desc">An advanced Retrieval-Augmented Generation (RAG) system that allows users to upload PDFs and interact with the data through an AI chatbot. Built with a FastAPI backend, FAISS vector database, and LangChain for seamless document parsing and contextual querying.</p>
@@ -749,8 +814,6 @@
                     <a href="https://ghanshyam6032.github.io/intelligent-document-rag/" class="btn btn-primary btn-sm">Live Demo</a>
                 </div>
             </div>
-
-            
 
             <div class="glass-panel project-card">
                 <img src="./covide.png" alt="COVID-19 Chest X-Ray Classification" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
@@ -773,8 +836,6 @@
 
             <div class="glass-panel project-card">
                 <img src="./movie.png" alt="Movie Recommender System" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
-
-                
                 <h3 class="project-title">Movie Recommender System</h3>
                 <p class="project-desc">A highly accurate recommendation engine that processes user preferences and viewing history to suggest relevant cinematic content using collaborative filtering and content-based algorithms.</p>
                 <div class="project-tech">
@@ -793,24 +854,21 @@
             
             <div class="glass-panel project-card">
                 <img src="./email.png" alt="AI Spam Analyzer Pro" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
-    <h3 class="project-title">AI Spam Analyzer Pro</h3>
-    <p class="project-desc">A full-stack machine learning application to detect spam in emails and messages in real-time. Features Explainable AI to highlight suspicious words, rate limiting, and a modern responsive UI.</p>
-    
-    <div class="project-tech">
-        <span>Python</span>
-        <span>FastAPI</span>
-        <span>Scikit-Learn</span>
-        <span>NLP</span>
-        <span>HTML/JS/CSS</span>
-    </div>
-    
-    <div class="project-actions">
-        <a href="https://github.com/Ghanshyam6032/Email_spam_detector" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
-        <a href="https://github.com/Ghanshyam6032/Email_spam_detector/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
-        <a href="https://ghanshyam6032.github.io/Email_spam_detector/" target="_blank" class="btn btn-primary btn-sm">Live Demo</a>
-    </div>
-
-</div>  
+                <h3 class="project-title">AI Spam Analyzer Pro</h3>
+                <p class="project-desc">A full-stack machine learning application to detect spam in emails and messages in real-time. Features Explainable AI to highlight suspicious words, rate limiting, and a modern responsive UI.</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>FastAPI</span>
+                    <span>Scikit-Learn</span>
+                    <span>NLP</span>
+                    <span>HTML/JS/CSS</span>
+                </div>
+                <div class="project-actions">
+                    <a href="https://github.com/Ghanshyam6032/Email_spam_detector" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
+                    <a href="https://github.com/Ghanshyam6032/Email_spam_detector/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
+                    <a href="https://ghanshyam6032.github.io/Email_spam_detector/" target="_blank" class="btn btn-primary btn-sm">Live Demo</a>
+                </div>
+            </div>  
 
         </div>
 
@@ -818,7 +876,7 @@
         <div class="projects-grid">
             
             <div class="glass-panel project-card">
-                <img src="./sales_dashboard.png" alt="Movie Recommender System" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
+                <img src="./sales_dashboard.png" alt="Retail Sales Analysis" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
                 <h3 class="project-title">Retail Sales Analysis</h3>
                 <p class="project-desc">A comprehensive analytics project identifying sales trends and product performance across retail channels. Culminated in the development of an interactive dashboard for rapid executive decision-making.</p>
                 <div class="project-tech">
@@ -833,7 +891,7 @@
             </div>
 
             <div class="glass-panel project-card">
-                <img src="./supermarket_dashboard.png" alt="Movie Recommender System" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
+                <img src="./supermarket_dashboard.png" alt="Supermarket Sales Analysis" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
                 <h3 class="project-title">Supermarket Sales Analysis</h3>
                 <p class="project-desc">Business analytics initiative focusing on customer insights and KPI tracking. Performed deep revenue and profitability analysis to streamline supermarket operations.</p>
                 <div class="project-tech">
@@ -850,23 +908,28 @@
         </div>
     </section>
 
+    <!-- Improved GitHub Stats Section -->
     <section id="github-stats" class="container">
         <h2 class="section-header">GitHub <span class="gradient-text">Statistics</span></h2>
         <div class="gh-stats-wrapper">
+            <!-- Original Streak Card (Restored as requested) -->
             <div class="gh-stats-grid">
-                
-                
-                <img src="https://github-readme-streak-stats.herokuapp.com/?user=Ghanshyam6032&theme=radical&hide_border=true&background=050507&ring=00f2fe&fire=4facfe&currStreakLabel=4facfe&sideNums=ffffff&sideLabels=a0a0b0&dates=a0a0b0" class="gh-stat-card" alt="GitHub Streak">
+                <img src="https://github-readme-streak-stats.herokuapp.com/?user=Ghanshyam6032&theme=radical&hide_border=true&background=050507&ring=00f2fe&fire=4facfe&currStreakLabel=4facfe&sideNums=ffffff&sideLabels=a0a0b0&dates=a0a0b0" class="gh-stat-card" style="max-width: 550px;" alt="GitHub Streak">
             </div>
             
-            <img src="https://github-readme-activity-graph.vercel.app/graph?username=Ghanshyam6032&bg_color=050507&color=4facfe&line=00f2fe&point=ffffff&hide_border=true" class="gh-stat-wide" alt="GitHub Contribution Graph">
+            <!-- Stable Contribution Graph inside original elegant glass panel -->
+            <div class="gh-stat-wide">
+                <p style="color: var(--text-secondary); font-family: var(--font-mono); margin-bottom: 1.5rem; font-size: 0.9rem; letter-spacing: 1px;">CONTRIBUTION ACTIVITY</p>
+                <img src="https://ghchart.rshah.org/4facfe/Ghanshyam6032" alt="GitHub Contribution Graph" style="width: 100%; min-width: 650px;">
+            </div>
         </div>
     </section>
 
-    <section id="contact" class="container">
+    <!-- Contact Section with Adjusted Spacing (margin-top added for balance) -->
+    <section id="contact" class="container" style="margin-top: 2rem;">
         <div class="glass-panel contact-content" style="padding: 4rem 2rem;">
-            <h2 class="section-header" style="margin-bottom: 0.5rem;">Let's <span class="gradient-text">Connect</span></h2>
-            <p class="hero-desc" style="margin: 0 auto;">Currently seeking full-time Machine Learning Engineer and Data Analyst opportunities in the Navsari and Surat regions.</p>
+            <h2 class="section-header" style="margin-bottom: 0.5rem; margin-top: 0;">Let's <span class="gradient-text">Connect</span></h2>
+            <p class="hero-desc" style="margin: 0 auto;">Currently seeking full-time Machine Learning Engineer and Data Analyst opportunities. Based in Surat, Gujarat and Open to Relocation Across India.</p>
             
             <div class="contact-info">
                 <a href="mailto:ghanshyamprajapati6032@gmail.com" class="contact-item">
@@ -891,7 +954,7 @@
 
     <footer>
         <div class="container">
-            <p>Designed & Developed by Ghanshyam Prajapati | Navsari, Gujarat</p>
+            <p>Designed & Developed by Ghanshyam Prajapati | Surat, Gujarat</p>
         </div>
     </footer>
 
