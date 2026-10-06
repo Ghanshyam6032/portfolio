@@ -19,538 +19,149 @@
         }
 
         /* Global Reset & Base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: var(--font-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
+            background-color: var(--bg-color); color: var(--text-primary);
+            font-family: var(--font-main); line-height: 1.6; overflow-x: hidden; position: relative;
         }
 
         /* Ambient Background */
         body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            content: ''; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
             background: radial-gradient(circle at center, rgba(79, 172, 254, 0.04) 0%, transparent 60%);
-            z-index: -1;
-            pointer-events: none;
+            z-index: -1; pointer-events: none;
         }
 
         /* Glassmorphism Utilities */
         .glass-panel {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
+            background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border); border-radius: 12px;
         }
 
         /* Typography */
-        h1, h2, h3, h4 {
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
+        h1, h2, h3, h4 { font-weight: 600; line-height: 1.2; }
         .gradient-text {
             background: linear-gradient(90deg, var(--accent-glow), var(--accent-glow-alt));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            display: inline-block; padding-bottom: 0.15em; line-height: 1.3;
         }
 
         /* Layout & Sections */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
         section {
-            padding: 5rem 0;
-            opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            padding: 5rem 0; opacity: 0; transform: translateY(15px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; clear: both;
         }
 
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        section.visible { opacity: 1; transform: translateY(0); }
 
-        .section-header {
-            margin-top: 3rem;
-            margin-bottom: 3rem;
-            font-size: 2.2rem;
-            text-align: center;
-        }
-
-        .subsection-header {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            margin: 3rem 0 1.5rem 0;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--glass-border);
-        }
+        .section-header { margin-top: 3rem; margin-bottom: 3rem; font-size: 2.2rem; text-align: center; }
+        .subsection-header { font-size: 1.5rem; color: var(--text-primary); margin: 3rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 1px solid var(--glass-border); }
 
         /* Navbar */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.2rem 0;
-            z-index: 100;
-            background: rgba(5, 5, 7, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--glass-border);
+            position: fixed; top: 0; width: 100%; padding: 1.2rem 0; z-index: 1000;
+            background: rgba(5, 5, 7, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--glass-border);
         }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            margin-left: 2rem;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-glow);
-        }
-
-        /* Mobile Menu Button - Hidden by default */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            cursor: pointer;
-            padding: 0.5rem;
-        }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; color: var(--text-primary); text-decoration: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent-glow); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); cursor: pointer; padding: 0.5rem; }
 
         /* Hero Section */
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            padding-top: 6rem;
-        }
-
-        .hero-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap-reverse;
-            gap: 3rem;
-            width: 100%;
-        }
-
-        .hero-content {
-            flex: 1;
-            min-width: 300px;
-            max-width: 750px;
-        }
-
-        .hero-image-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-        }
-
-        .hero-profile-img {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--glass-border);
-            box-shadow: 0 0 35px rgba(79, 172, 254, 0.3);
-            background: var(--glass-bg);
-            transition: box-shadow 0.3s ease;
-        }
-        
-        .hero-profile-img:hover {
-            box-shadow: 0 0 50px rgba(79, 172, 254, 0.5);
-        }
-
-        .hero-subtitle {
-            font-family: var(--font-mono);
-            color: var(--accent-glow);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-        }
-
-        .hero-title {
-            font-size: clamp(2.8rem, 5vw, 4rem);
-            margin-bottom: 1.2rem;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-desc {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            max-width: 650px;
-        }
+        .hero { padding-top: 160px; padding-bottom: 4rem; min-height: 100vh; display: flex; align-items: flex-start; }
+        .hero-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap-reverse; gap: 3rem; width: 100%; }
+        .hero-content { flex: 1; min-width: 300px; max-width: 750px; }
+        .hero-image-container { display: flex; justify-content: center; align-items: center; padding: 1rem; }
+        .hero-profile-img { width: 300px; height: 300px; border-radius: 50%; object-fit: cover; border: 2px solid var(--glass-border); box-shadow: 0 0 35px rgba(79, 172, 254, 0.3); background: var(--glass-bg); transition: box-shadow 0.3s ease, transform 0.3s ease; }
+        .hero-profile-img:hover { box-shadow: 0 0 50px rgba(79, 172, 254, 0.5); transform: scale(1.03); }
+        .hero-subtitle { font-family: var(--font-mono); color: var(--accent-glow); margin-bottom: 1rem; font-size: 0.95rem; letter-spacing: 1px; }
+        .hero-title { font-size: clamp(2.8rem, 5vw, 4rem); margin-bottom: 1.2rem; letter-spacing: -0.5px; }
+        .hero-desc { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2.5rem; max-width: 650px; }
 
         /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 0.7rem 1.8rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            text-align: center;
-        }
+        .btn { display: inline-block; padding: 0.7rem 1.8rem; border-radius: 6px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.2s ease; cursor: pointer; text-align: center; }
+        .btn-primary { background: linear-gradient(90deg, #4facfe, #00f2fe); color: #050507; border: none; box-shadow: 0 4px 15px rgba(79, 172, 254, 0.2); }
+        .btn-primary:hover { box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4); transform: translateY(-1px); }
+        .btn-secondary { background: transparent; color: var(--text-primary); border: 1px solid var(--glass-border); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.05); border-color: var(--accent-glow); }
+        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-        .btn-primary {
-            background: linear-gradient(90deg, #4facfe, #00f2fe);
-            color: #050507;
-            border: none;
-            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.2);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--glass-border);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--accent-glow);
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        /* About Me Section */
-        .about-text {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        /* Education & Certifications */
-        .edu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .edu-card {
-            padding: 1.8rem;
-            transition: transform 0.2s;
-        }
-
-        .edu-card:hover {
-            border-color: rgba(79, 172, 254, 0.3);
-        }
-
-        .edu-date {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--accent-glow);
-            margin-bottom: 0.5rem;
-        }
-
-        .edu-title {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-            color: var(--text-primary);
-        }
-
-        .edu-inst {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
+        /* About & Education */
+        .about-text { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; max-width: 900px; margin: 0 auto; text-align: justify; }
+        .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .edu-card { padding: 1.8rem; transition: transform 0.2s; }
+        .edu-card:hover { border-color: rgba(79, 172, 254, 0.3); }
+        .edu-date { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-glow); margin-bottom: 0.5rem; }
+        .edu-title { font-size: 1.1rem; margin-bottom: 0.3rem; color: var(--text-primary); }
+        .edu-inst { font-size: 0.95rem; color: var(--text-secondary); }
 
         /* Skills Grid */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .skill-category { padding: 1.8rem; }
+        .skill-category h3 { margin-bottom: 1.2rem; font-size: 1.1rem; color: var(--accent-glow-alt); }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+        .skill-tag { background: rgba(255, 255, 255, 0.04); padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s; }
+        .skill-tag:hover { border-color: var(--accent-glow); color: var(--accent-glow); }
+
+        /* Projects Grid & Cards */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; }
+        .project-card { padding: 2rem; display: flex; flex-direction: column; height: 100%; transition: transform 0.2s, border-color 0.2s; position: relative; }
+        .project-card:hover { transform: translateY(-4px); border-color: rgba(79, 172, 254, 0.4); }
+        .project-badge { position: absolute; top: -10px; right: 20px; background: linear-gradient(90deg, #4facfe, #00f2fe); color: #000; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.8rem; border-radius: 20px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(79, 172, 254, 0.3); z-index: 10; }
+        .project-badge.pending { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+        /* Project Thumbnails */
+        .project-thumb { 
+            width: 100%; 
+            height: 180px; 
+            object-fit: cover; 
+            object-position: top; /* Changed to top so images aren't cropped from center */
+            border-radius: 6px; 
+            margin-bottom: 1.5rem; 
+            border: 1px solid var(--glass-border); 
+            background: rgba(0, 0, 0, 0.5); 
+            display: block; 
         }
 
-        .skill-category {
-            padding: 1.8rem;
-        }
-
-        .skill-category h3 {
-            margin-bottom: 1.2rem;
-            font-size: 1.1rem;
-            color: var(--accent-glow-alt);
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            color: var(--text-primary);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.2s;
-        }
-
-        .skill-tag:hover {
-            border-color: var(--accent-glow);
-            color: var(--accent-glow);
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            transition: transform 0.2s, border-color 0.2s;
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(79, 172, 254, 0.4);
-        }
-
-        .project-badge {
-            position: absolute;
-            top: -10px;
-            right: 20px;
-            background: linear-gradient(90deg, #4facfe, #00f2fe);
-            color: #000;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 10px rgba(79, 172, 254, 0.3);
-            z-index: 10;
-        }
-
-        .project-thumb {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 6px;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--glass-border);
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .project-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-bottom: 1.5rem;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        .project-tech span {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .project-actions {
-            display: flex;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-sm {
-            padding: 0.4rem 0.8rem;
-            font-size: 0.8rem;
-            border-radius: 4px;
-        }
+        .project-title { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-primary); }
+        .project-desc { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1; }
+        .project-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); }
+        .project-tech span { background: rgba(0, 0, 0, 0.4); padding: 0.2rem 0.5rem; border-radius: 3px; border: 1px solid rgba(255,255,255,0.05); }
+        
+        .project-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+        .btn-sm { padding: 0.4rem 0.8rem; font-size: 0.8rem; border-radius: 4px; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
 
         /* GitHub Statistics */
-        .gh-stats-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            align-items: center;
-            width: 100%;
-        }
-
-        .gh-stats-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            justify-content: center;
-            align-items: stretch;
-            width: 100%;
-        }
-
-        .gh-stat-card {
-            flex: 1 1 400px;
-            max-width: 100%;
-            border-radius: 12px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            transition: transform 0.3s, border-color 0.3s;
-        }
-        
-        .gh-stat-wide {
-            width: 100%;
-            max-width: 900px;
-            border-radius: 12px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            transition: transform 0.3s, border-color 0.3s;
-            padding: 2.5rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow-x: auto;
-        }
-
-        .gh-stat-card:hover, .gh-stat-wide:hover {
-            transform: translateY(-5px);
-            border-color: rgba(79, 172, 254, 0.3);
-        }
+        .gh-stats-wrapper { display: flex; flex-direction: column; gap: 2rem; align-items: center; width: 100%; }
+        .gh-stats-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; align-items: stretch; width: 100%; }
+        .gh-stat-card { flex: 1 1 400px; max-width: 100%; border-radius: 12px; background: var(--glass-bg); border: 1px solid var(--glass-border); transition: transform 0.3s, border-color 0.3s; }
+        .gh-stat-wide { width: 100%; max-width: 900px; border-radius: 12px; background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 2.5rem 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow-x: auto; }
 
         /* Contact Section */
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        .contact-content { text-align: center; max-width: 600px; margin: 0 auto; }
+        .contact-info { display: flex; justify-content: center; gap: 2.5rem; margin: 2.5rem 0; flex-wrap: wrap; }
+        .contact-item { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--text-secondary); transition: color 0.2s; font-size: 0.95rem; }
+        .contact-item:hover { color: var(--accent-glow); }
+        .contact-item svg { width: 22px; height: 22px; fill: currentColor; }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            margin: 2.5rem 0;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: var(--text-secondary);
-            transition: color 0.2s;
-            font-size: 0.95rem;
-        }
-
-        .contact-item:hover {
-            color: var(--accent-glow);
-        }
-
-        .contact-item svg {
-            width: 22px;
-            height: 22px;
-            fill: currentColor;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--glass-border);
-        }
+        footer { text-align: center; padding: 2rem 0; color: var(--text-secondary); font-size: 0.85rem; border-top: 1px solid var(--glass-border); }
 
         /* Responsive Mobile Changes */
-        @media (max-width: 768px) {
-            .mobile-menu-btn { 
-                display: block; 
-            }
-            .nav-links { 
-                display: none; 
-                flex-direction: column; 
-                position: absolute; 
-                top: 100%; 
-                left: 0; 
-                width: 100%; 
-                background: rgba(5, 5, 7, 0.98); 
-                padding: 1rem 0;
-                border-bottom: 1px solid var(--glass-border);
-                backdrop-filter: blur(12px);
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-links a {
-                margin: 1rem 0;
-                text-align: center;
-            }
+       @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(5, 5, 7, 0.98); padding: 1rem 0; border-bottom: 1px solid var(--glass-border); backdrop-filter: blur(12px); }
+            .nav-links.active { display: flex; }
+            .nav-links a { margin: 1rem 0; text-align: center; }
+            .hero { padding-top: 120px; }
+            .hero-profile-img { width: 300px; height: 300px; } 
             .hero-title { font-size: 2.2rem; }
             .section-header { font-size: 1.8rem; }
             .hero-actions { flex-direction: column; width: 100%; }
             .hero-actions .btn { width: 100%; }
-            .hero-inner { justify-content: center; text-align: center; }
-            .hero-actions { justify-content: center; }
         }
     </style>
 </head>
@@ -560,11 +171,8 @@
         <div class="container nav-content">
             <a href="#" class="nav-logo">Ghanshyam<span class="gradient-text">.ML</span></a>
             
-            <!-- Hamburger Menu Button -->
             <button class="mobile-menu-btn" aria-label="Toggle Menu">
-                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                </svg>
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
             </button>
             
             <div class="nav-links">
@@ -589,7 +197,10 @@
                 </p>
                <div class="hero-actions">
                     <a href="Ghanshyam_Prajapati_AI_ML_Engineer_Resume.pdf" target="_blank" class="btn btn-primary">View Resume</a>
-                    <a href="https://github.com/Ghanshyam6032" target="_blank" class="btn btn-secondary">GitHub Profile</a>
+                    <a href="https://github.com/Ghanshyam6032" target="_blank" class="btn btn-secondary">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align: text-bottom; margin-right: 5px;"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        GitHub Profile
+                    </a>
                 </div>
             </div>
             <div class="hero-image-container">
@@ -626,47 +237,32 @@
     <section id="certifications" class="container">
         <h2 class="section-header">Professional <span class="gradient-text">Training</span></h2>
         <div class="projects-grid"> 
-            <!-- AI & ML Certificate Card -->
             <div class="glass-panel project-card">
-                <img src="./AIML_2026.png" alt="AI & ML Training Certificate" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none; object-fit: cover; object-position: top; background: #fff;">
-                
-                <div class="project-badge">In Progress</div>
+                <img src="./AIML_2026.png" alt="AI & ML Training Certificate" class="project-thumb">
+                <div class="project-badge pending">In Progress</div>
                 <h3 class="project-title">Artificial Intelligence & Machine Learning</h3>
-                
                 <p class="project-desc">
                     Enrolled in a 1-year training program at Jinarth Infotech. Successfully completed the first 6 months with hands-on experience in Data Analysis, Machine Learning, Deep Learning, NLP, and Computer Vision.
                 </p>
-                
                 <div class="project-tech">
-                    <span>Python</span>
-                    <span>Machine Learning</span>
-                    <span>Deep Learning</span>
-                    <span>NLP</span>
-                    <span>Computer Vision</span>
+                    <span>Python</span><span>Machine Learning</span><span>Deep Learning</span><span>NLP</span><span>Computer Vision</span>
                 </div>
-                
                 <div class="project-actions" style="margin-top: 1rem;">
                     <a href="./AIML 2026.pdf" target="_blank" class="btn btn-primary btn-sm">View Certificate</a>
                 </div>
             </div>
 
-            <!-- Data Analysis Training Card -->
             <div class="glass-panel project-card">
-                <div style="height: 180px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); border-radius: 8px 8px 0 0; margin-bottom: 1.5rem; border: 1px solid var(--glass-border);">
+                <div class="project-thumb" style="display: flex; align-items: center; justify-content: center;">
                     <h3 style="color: var(--text-secondary); font-family: var(--font-mono);">DATA_ANALYSIS</h3>
                 </div>
-                
-                <div class="project-badge">In Progress</div>
-                <h3 class="project-title">Data Analysis </h3>
-                
+                <div class="project-badge pending">In Progress</div>
+                <h3 class="project-title">Data Analysis</h3>
                 <p class="project-desc">
                     Professional training completed at Jinarth Infotech, Anand, Gujarat. Focused on foundational data manipulation, cleaning, and visualization techniques.
                 </p>
-                
                 <div class="project-tech">
-                    <span>Data Analysis</span>
-                    <span>Excel</span>
-                    <span>Data Visualization</span>
+                    <span>Data Analysis</span><span>Excel</span><span>Data Visualization</span>
                 </div>
             </div>
         </div>
@@ -678,50 +274,25 @@
             <div class="glass-panel skill-category">
                 <h3>Programming & Data</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Data Cleaning</span>
-                    <span class="skill-tag">EDA</span>
-                    <span class="skill-tag">Excel</span>
-                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Data Cleaning</span><span class="skill-tag">EDA</span><span class="skill-tag">Excel</span><span class="skill-tag">Power BI</span>
                 </div>
             </div>
             <div class="glass-panel skill-category">
                 <h3>Machine Learning</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Computer Vision</span>
-                    <span class="skill-tag">RAG</span>
-                    <span class="skill-tag">Regression</span>
-                    <span class="skill-tag">Classification</span>
-                    <span class="skill-tag">Clustering</span>
-                    <span class="skill-tag">CNNs</span>
-                    <span class="skill-tag">Transfer Learning</span>
-                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">Computer Vision</span><span class="skill-tag">RAG</span><span class="skill-tag">Regression</span><span class="skill-tag">Classification</span><span class="skill-tag">Clustering</span><span class="skill-tag">CNNs</span><span class="skill-tag">Transfer Learning</span><span class="skill-tag">NLP</span>
                 </div>
             </div>
             <div class="glass-panel skill-category">
                 <h3>Libraries & Tools</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">TensorFlow</span>
-                    <span class="skill-tag">Scikit-Learn</span>
-                    <span class="skill-tag">LangChain</span>
-                    <span class="skill-tag">FAISS</span>
-                    <span class="skill-tag">Pandas</span>
-                    <span class="skill-tag">NumPy</span>
-                    <span class="skill-tag">Matplotlib</span>
-                    <span class="skill-tag">Git/GitHub</span>
+                    <span class="skill-tag">TensorFlow</span><span class="skill-tag">Scikit-Learn</span><span class="skill-tag">LangChain</span><span class="skill-tag">FAISS</span><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Git/GitHub</span>
                 </div>
             </div>
             <div class="glass-panel skill-category">
                 <h3>Deployment</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">FastAPI</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">Streamlit</span>
-                    <span class="skill-tag">Render</span>
-                    <span class="skill-tag">Railway</span>
-                    <span class="skill-tag">Google Colab</span>
+                    <span class="skill-tag">FastAPI</span><span class="skill-tag">Docker</span><span class="skill-tag">Streamlit</span><span class="skill-tag">Render</span><span class="skill-tag">Railway</span><span class="skill-tag">Google Colab</span>
                 </div>
             </div>
         </div>
@@ -730,195 +301,148 @@
     <section id="projects" class="container">
         <h2 class="section-header">Professional <span class="gradient-text">Projects</span></h2>
         
-        <h3 class="subsection-header">AI & Machine Learning</h3>
+        <!-- Category 1: All in One -->
+        <h3 class="subsection-header">All in One (AI, Gen AI & ML)</h3>
         <div class="projects-grid">
-
+            
+            <!-- Flipkart Order Intelligence -->
             <div class="glass-panel project-card">
-                <img src="./flipcart.png" alt="Flipkart Order Intelligence" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
                 <div class="project-badge">Featured</div>
+                <img src="./flipcart.png" alt="Flipkart Order Intelligence" class="project-thumb">
                 <h3 class="project-title">Flipkart Order Intelligence</h3>
-                <p class="project-desc">
-                    An AI-powered e-commerce system for return risk prediction,
-                    product image classification, and intelligent customer support.
-                </p>
-                <div class="project-tech">
-                    <span>Python</span>
-                    <span>Scikit-learn</span>
-                    <span>TensorFlow Lite</span>
-                    <span>FastAPI</span>
-                    <span>Mistral AI</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Ghanshyam6032/flipcart-order-intelligence" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
-                    <a href="https://github.com/Ghanshyam6032/flipcart-order-intelligence/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
-                    <a href="https://ghanshyam6032.github.io/flipcart-order-intelligence/" class="btn btn-primary btn-sm" target="_blank">Live Demo</a>
+                <p class="project-desc">An AI-powered e-commerce system for return risk prediction, product image classification, and intelligent customer support.</p>
+                <div class="project-tech"><span>Python</span><span>Scikit-learn</span><span>TensorFlow Lite</span><span>FastAPI</span><span>Mistral AI</span></div>
+                <div class="project-actions" style="margin-top: 1rem;">
+                    <a href="https://ghanshyam6032.github.io/flipcart-order-intelligence/" class="btn btn-primary btn-sm" target="_blank">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        Live Demo
+                    </a>
+                    <a href="https://github.com/Ghanshyam6032/flipcart-order-intelligence" target="_blank" class="btn btn-secondary btn-sm">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        GitHub
+                    </a>
                 </div>
             </div>
-
-            <div class="glass-panel project-card">
-                <img src="./whatsapp.png" alt="AI WhatsApp Clinic Booking" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
-                <div class="project-badge">New</div>
-                <h3 class="project-title">AI WhatsApp Clinic Booking</h3>
-                <p class="project-desc">An intelligent WhatsApp chatbot for seamless clinic appointment management. Built with FastAPI and Mistral AI, it handles natural language booking, checks slot availability, and synchronizes data with Google Sheets and Calendar in real-time.</p>
-                <div class="project-tech">
-                    <span>Python</span>
-                    <span>FastAPI</span>
-                    <span>Mistral AI</span>
-                    <span>WhatsApp Cloud API</span>
-                    <span>Google Cloud APIs</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Ghanshyam6032/whatsapp-clinic-appointment-system" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
-                    <a href="https://github.com/Ghanshyam6032/whatsapp-clinic-appointment-system/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
-                    <a href="https://wa.me/919316810286?text=Hi" class="btn btn-primary btn-sm" target="_blank">Live Demo</a>
-                </div>
-            </div>
-            
-            <div class="glass-panel project-card">
-                <img src="./agent.png" alt="AI Travel Agent Interface" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
-                <div class="project-badge">Featured</div>
-                <h3 class="project-title">AI Travel Agent</h3>
-                <p class="project-desc">An interactive, AI-powered travel concierge that helps users plan trips seamlessly. It utilizes LangChain and Groq's Llama-3.3-70B model to intelligently call 6 live APIs for real-time weather, flight searches, hotel & restaurant recommendations, currency conversion, and distance calculation. Features a modern Single-Page Application (SPA) frontend with an integrated login system.</p>
-                <div class="project-tech">
-                    <span>Python</span>
-                    <span>FastAPI</span>
-                    <span>LangChain</span>
-                    <span>Groq LLM</span>
-                    <span>Tailwind CSS</span>
-                    <span>Railway</span>
-                    <span>Live APIs</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Ghanshyam6032/AI-Travel-Agent" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
-                    <a href="https://github.com/Ghanshyam6032/AI-Travel-Agent/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
-                    <a href="https://ghanshyam6032.github.io/AI-Travel-Agent/" class="btn btn-primary btn-sm" target="_blank">Live Demo</a>
-                </div>
-            </div>
-
-            <div class="glass-panel project-card">
-               <img src="./chatbot.png" alt="Intelligent Document RAG" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
-               <div class="project-badge">New</div>
-               <h3 class="project-title">Intelligent Document RAG</h3>
-               <p class="project-desc">An advanced Retrieval-Augmented Generation (RAG) system that allows users to upload PDFs and interact with the data through an AI chatbot. Built with a FastAPI backend, FAISS vector database, and LangChain for seamless document parsing and contextual querying.</p>
-               <div class="project-tech">
-                 <span>Python</span>
-                 <span>FastAPI</span>
-                 <span>LangChain</span>
-                 <span>FAISS</span>
-                 <span>Groq LLM</span>
-                 <span>Railway</span>
-                 <span>HTML/JS/CSS</span>
-               </div>
-               <div class="project-actions">
-                    <a href="https://github.com/Ghanshyam6032/intelligent-document-rag" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
-                    <a href="https://github.com/Ghanshyam6032/intelligent-document-rag/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
-                    <a href="https://ghanshyam6032.github.io/intelligent-document-rag/" class="btn btn-primary btn-sm">Live Demo</a>
-                </div>
-            </div>
-
-            <div class="glass-panel project-card">
-                <img src="./covide.png" alt="COVID-19 Chest X-Ray Classification" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
-                <div class="project-badge">Featured</div>
-                <h3 class="project-title">COVID-19 Chest X-Ray Classification</h3>
-                <p class="project-desc">Deep Learning model utilizing MobileNetV2 for automated image preprocessing and transfer learning to accurately classify chest X-rays. Deployed as a functional web application.</p>
-                <div class="project-tech">
-                    <span>TensorFlow</span>
-                    <span>MobileNetV2</span>
-                    <span>FastAPI</span>
-                    <span>Railway</span>
-                    <span>HTML/JS/CSS</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Ghanshyam6032/COVID19-XRay-Classification" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
-                    <a href="https://github.com/Ghanshyam6032/covid19-xray-classification-webapp/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
-                    <a href="https://covid19-xray-ui.onrender.com" class="btn btn-primary btn-sm">Live Demo</a>
-                </div>
-            </div>
-
-            <div class="glass-panel project-card">
-                <img src="./movie.png" alt="Movie Recommender System" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
-                <h3 class="project-title">Movie Recommender System</h3>
-                <p class="project-desc">A highly accurate recommendation engine that processes user preferences and viewing history to suggest relevant cinematic content using collaborative filtering and content-based algorithms.</p>
-                <div class="project-tech">
-                    <span>Python</span>
-                    <span>Scikit-Learn</span>
-                    <span>Pandas</span>
-                    <span>Render</span>
-                    <span>HTML/JS/CSS</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Ghanshyam6032/Movie_Recommender" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
-                    <a href="https://github.com/Ghanshyam6032/Movie_Recommender/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
-                    <a href="https://movie-recommender-frontend-rka7.onrender.com/" class="btn btn-primary btn-sm">Live Demo</a>
-                </div>
-            </div>
-            
-            <div class="glass-panel project-card">
-                <img src="./email.png" alt="AI Spam Analyzer Pro" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
-                <h3 class="project-title">AI Spam Analyzer Pro</h3>
-                <p class="project-desc">A full-stack machine learning application to detect spam in emails and messages in real-time. Features Explainable AI to highlight suspicious words, rate limiting, and a modern responsive UI.</p>
-                <div class="project-tech">
-                    <span>Python</span>
-                    <span>FastAPI</span>
-                    <span>Scikit-Learn</span>
-                    <span>NLP</span>
-                    <span>HTML/JS/CSS</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Ghanshyam6032/Email_spam_detector" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
-                    <a href="https://github.com/Ghanshyam6032/Email_spam_detector/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
-                    <a href="https://ghanshyam6032.github.io/Email_spam_detector/" target="_blank" class="btn btn-primary btn-sm">Live Demo</a>
-                </div>
-            </div>  
 
         </div>
 
-        <h3 class="subsection-header">Data Analytics</h3>
+        <!-- Category 2: Generative AI -->
+        <h3 class="subsection-header" style="margin-top: 5rem;">Generative AI</h3>
         <div class="projects-grid">
             
+            <!-- AI Travel Agent -->
             <div class="glass-panel project-card">
-                <img src="./sales_dashboard.png" alt="Retail Sales Analysis" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
-                <h3 class="project-title">Retail Sales Analysis</h3>
-                <p class="project-desc">A comprehensive analytics project identifying sales trends and product performance across retail channels. Culminated in the development of an interactive dashboard for rapid executive decision-making.</p>
-                <div class="project-tech">
-                    <span>Excel</span>
-                    <span>Data Analytics</span>
-                    <span>Dashboards</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Ghanshyam6032/Retail-Sales-Analysis" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
-                    <a href="https://github.com/Ghanshyam6032/Retail-Sales-Analysis/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
+                <div class="project-badge">Completed</div>
+                <img src="./agent.png" alt="AI Travel Agent Interface" class="project-thumb">
+                <h3 class="project-title">AI Travel Agent</h3>
+                <p class="project-desc">An interactive, AI-powered travel concierge that helps users plan trips seamlessly. It utilizes LangChain and Groq's Llama-3.3-70B model to intelligently call 6 live APIs. Features a modern SPA frontend with an integrated login system.</p>
+                <div class="project-tech"><span>Python</span><span>FastAPI</span><span>LangChain</span><span>Groq LLM</span><span>Railway</span></div>
+                <div class="project-actions" style="margin-top: 1rem;">
+                    <a href="https://ghanshyam6032.github.io/AI-Travel-Agent/" class="btn btn-primary btn-sm" target="_blank">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        Live Demo
+                    </a>
+                    <a href="https://github.com/Ghanshyam6032/AI-Travel-Agent" target="_blank" class="btn btn-secondary btn-sm">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        GitHub
+                    </a>
                 </div>
             </div>
 
+            <!-- Intelligent Document RAG -->
             <div class="glass-panel project-card">
-                <img src="./supermarket_dashboard.png" alt="Supermarket Sales Analysis" class="project-thumb" style="border-radius: 8px 8px 0 0; border: none;">
-                <h3 class="project-title">Supermarket Sales Analysis</h3>
-                <p class="project-desc">Business analytics initiative focusing on customer insights and KPI tracking. Performed deep revenue and profitability analysis to streamline supermarket operations.</p>
-                <div class="project-tech">
-                    <span>Excel</span>
-                    <span>Business Analytics</span>
-                    <span>KPI Tracking</span>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/Ghanshyam6032/Supermarket-Sales-Analysis" target="_blank" class="btn btn-secondary btn-sm">GitHub</a>
-                    <a href="https://github.com/Ghanshyam6032/Supermarket-Sales-Analysis/blob/main/README.md" target="_blank" class="btn btn-secondary btn-sm">README</a>
+               <div class="project-badge">Completed</div>
+               <img src="./chatbot.png" alt="Intelligent Document RAG" class="project-thumb">
+               <h3 class="project-title">Intelligent Document RAG</h3>
+               <p class="project-desc">An advanced Retrieval-Augmented Generation (RAG) system that allows users to upload PDFs and interact with the data through an AI chatbot. Built with a FastAPI backend, FAISS vector database, and LangChain.</p>
+               <div class="project-tech"><span>Python</span><span>FastAPI</span><span>LangChain</span><span>FAISS</span><span>Groq LLM</span></div>
+               <div class="project-actions" style="margin-top: 1rem;">
+                    <a href="https://ghanshyam6032.github.io/intelligent-document-rag/" class="btn btn-primary btn-sm" target="_blank">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        Live Demo
+                    </a>
+                    <a href="https://github.com/Ghanshyam6032/intelligent-document-rag" target="_blank" class="btn btn-secondary btn-sm">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        GitHub
+                    </a>
                 </div>
             </div>
+        </div>
+
+        <!-- Category 3: Machine Learning -->
+        <h3 class="subsection-header" style="margin-top: 5rem;">Machine Learning</h3>
+        <div class="projects-grid">
+            
+            <!-- Movie Recommender System -->
+            <div class="glass-panel project-card">
+                <div class="project-badge">Completed</div>
+                <img src="./movie.png" alt="Movie Recommender System" class="project-thumb">
+                <h3 class="project-title">Movie Recommender System</h3>
+                <p class="project-desc">A highly accurate recommendation engine that processes user preferences and viewing history to suggest relevant cinematic content using collaborative filtering and content-based algorithms.</p>
+                <div class="project-tech"><span>Python</span><span>Scikit-Learn</span><span>Pandas</span><span>Render</span></div>
+                <div class="project-actions" style="margin-top: 1rem;">
+                    <a href="https://movie-recommender-frontend-rka7.onrender.com/" class="btn btn-primary btn-sm" target="_blank">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        Live Demo
+                    </a>
+                    <a href="https://github.com/Ghanshyam6032/Movie_Recommender" target="_blank" class="btn btn-secondary btn-sm">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- COVID-19 Chest X-Ray -->
+            <div class="glass-panel project-card">
+                <div class="project-badge">Completed</div>
+                <img src="./covide.png" alt="COVID-19 Chest X-Ray Classification" class="project-thumb">
+                <h3 class="project-title">COVID-19 Chest X-Ray Classification</h3>
+                <p class="project-desc">Deep Learning model utilizing MobileNetV2 for automated image preprocessing and transfer learning to accurately classify chest X-rays. Deployed as a functional web application.</p>
+                <div class="project-tech"><span>TensorFlow</span><span>MobileNetV2</span><span>FastAPI</span><span>Railway</span></div>
+                <div class="project-actions" style="margin-top: 1rem;">
+                    <a href="https://covid19-xray-ui.onrender.com" class="btn btn-primary btn-sm" target="_blank">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        Live Demo
+                    </a>
+                    <a href="https://github.com/Ghanshyam6032/COVID19-XRay-Classification" target="_blank" class="btn btn-secondary btn-sm">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- AI Spam Analyzer Pro -->
+            <div class="glass-panel project-card">
+                <div class="project-badge">Completed</div>
+                <img src="./email.png" alt="AI Spam Analyzer Pro" class="project-thumb">
+                <h3 class="project-title">AI Spam Analyzer Pro</h3>
+                <p class="project-desc">A full-stack machine learning application to detect spam in emails and messages in real-time. Features Explainable AI to highlight suspicious words, rate limiting, and a modern responsive UI.</p>
+                <div class="project-tech"><span>Python</span><span>FastAPI</span><span>Scikit-Learn</span><span>NLP</span></div>
+                <div class="project-actions" style="margin-top: 1rem;">
+                    <a href="https://ghanshyam6032.github.io/Email_spam_detector/" target="_blank" class="btn btn-primary btn-sm">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        Live Demo
+                    </a>
+                    <a href="https://github.com/Ghanshyam6032/Email_spam_detector" target="_blank" class="btn btn-secondary btn-sm">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            
+           
 
         </div>
     </section>
 
-    <!-- Improved GitHub Stats Section -->
+    <!-- GitHub Stats Section -->
     <section id="github-stats" class="container">
         <h2 class="section-header">GitHub <span class="gradient-text">Statistics</span></h2>
         <div class="gh-stats-wrapper">
-            <!-- Original Streak Card (Restored as requested) -->
             <div class="gh-stats-grid">
                 <img src="https://github-readme-streak-stats.herokuapp.com/?user=Ghanshyam6032&theme=radical&hide_border=true&background=050507&ring=00f2fe&fire=4facfe&currStreakLabel=4facfe&sideNums=ffffff&sideLabels=a0a0b0&dates=a0a0b0" class="gh-stat-card" style="max-width: 550px;" alt="GitHub Streak">
             </div>
             
-            <!-- Stable Contribution Graph inside original elegant glass panel -->
             <div class="gh-stat-wide">
                 <p style="color: var(--text-secondary); font-family: var(--font-mono); margin-bottom: 1.5rem; font-size: 0.9rem; letter-spacing: 1px;">CONTRIBUTION ACTIVITY</p>
                 <img src="https://ghchart.rshah.org/4facfe/Ghanshyam6032" alt="GitHub Contribution Graph" style="width: 100%; min-width: 650px;">
@@ -926,7 +450,6 @@
         </div>
     </section>
 
-    <!-- Contact Section with Adjusted Spacing (margin-top added for balance) -->
     <section id="contact" class="container" style="margin-top: 2rem;">
         <div class="glass-panel contact-content" style="padding: 4rem 2rem;">
             <h2 class="section-header" style="margin-bottom: 0.5rem; margin-top: 0;">Let's <span class="gradient-text">Connect</span></h2>
@@ -979,13 +502,8 @@
                 });
             });
 
-            // Scroll Reveal Animation Logic
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
+            // Scroll Reveal Animation
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1011,9 +529,8 @@
                 }
             });
 
-            // Dynamic GitHub Image Fetcher Logic
+            // GitHub Thumbnail Fallback Logic
             document.querySelectorAll('.project-card').forEach(async (card) => {
-                
                 if (card.querySelector('img')) return;
                 
                 const ghLink = card.querySelector('a[href*="github.com/Ghanshyam6032/"]');
@@ -1039,15 +556,13 @@
                     const data = await response.json();
                     
                     const readme = decodeURIComponent(escape(window.atob(data.content)));
-                    
                     const imgMatch = readme.match(/!\[.*?\]\((.*?)\)/) || readme.match(/<img.*?src=["'](.*?)["']/);
+                    
                     if(imgMatch && imgMatch[1]) {
                         let url = imgMatch[1];
-                        
                         if(!url.startsWith('http')) {
                             if(url.startsWith('./')) url = url.substring(2);
                             if(url.startsWith('/')) url = url.substring(1);
-                            
                             url = `https://raw.githubusercontent.com/Ghanshyam6032/${repoName}/main/${url}`;
                         }
                         img.src = url;
